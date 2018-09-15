@@ -3,25 +3,21 @@ HOW TO USE
 
 DOCKERIZED TEST
 ---------------
-1. install docker
+1. install docker and docker-compose
 Please google how to install docker in your host 
 
 2. start the whole architecture
 
-    docker-compose up
+    ```docker-compose up```
 
-3. get inside the dev-node container. e.g: docker exec -it cucumber_dev-node_1 /bin/bash
+3. run test. feel free to check package.json
 
-    docker exec -it $(foldername)_dev-node_1 /bin/bash
+    ```docker-compose exec dev-node env NODE_ENV=local TEST_CLIENT=chrome grunt test```
 
-4. run test. feel free to check package.json
+4. if you need to stop everything.
 
-    NODE_ENV=local TEST_CLIENT=chrome grunt test 
+    ```docker-compose stop```
 
-5. if you need to restart everything. WARNING: this will stop all your containers. Be aware if you are using containers in other project
-
-    docker stop $(docker ps -a -q)
-    docker rm $(docker ps -a -q)
 
 DEV. REMARK
 -----------
